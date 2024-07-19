@@ -1,0 +1,22 @@
+/* src/fonts.css */
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('./fonts/CustomFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Include other font weights and styles as needed */
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('./fonts/CustomFont-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  /* Now you can use the custom font in your CSS */
+  body {
+    font-family: 'CustomFont', sans-serif;
+  }
+  

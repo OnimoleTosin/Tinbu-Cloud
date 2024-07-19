@@ -1,11 +1,17 @@
 import React from 'react';
-import Route from './Routes'
+import Header from './components/Header';
+import ProductList from './components/ProductList';
+import Footer from './components/Footer';
+import './App.css';
 
-const App = () => {
-
+function App() {
   return (
-    <>
-    <Route /></>
+    <div className="app">
+      <Header />
+      <ProductList />
+      <Footer />
+    </div>
   );
-};
+}
+
 export default App;
