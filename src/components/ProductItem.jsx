@@ -13,7 +13,7 @@ const ProductItem = ({ product }) => {
       <div className="product-price">${product.price}</div>
       <div className='section-cart'>
         <div className='btn' >
-          <div onClick={() => setCount(count - 1)}><b>-</b></div>
+          <div onClick={() => setCount(count - 1 )}><b>-</b></div>
           {count}
           <div onClick={() => setCount(count + 1)}><b>+</b></div>
         </div>
