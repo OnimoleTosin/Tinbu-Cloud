@@ -10,8 +10,8 @@ function Header() {
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/checkout">Cart</a></li>
+            <li><a href='/shoppingcart'>Contact</a></li>
           </ul>
         </nav>
         <button className="logo">Cart</button>
