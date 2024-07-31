@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({cartCount, showCircle, bottomTitle}) {
   return (
     <div className="header">
 
@@ -8,13 +9,15 @@ function Header() {
         <div class="title">Tinbu Cloud</div>
         <nav>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="/checkout">Cart</a></li>
+            <li><a href="/cart">Cart</a></li>
             <li><a href='/shoppingcart'>Contact</a></li>
           </ul>
         </nav>
-        <button className="logo">Cart</button>
+        <Link to={'/shoppingcart'}>
+        <button className="logo" >Cart {cartCount}</button>
+        </Link>
       </header>
 
       <div className='container'>
@@ -22,11 +25,13 @@ function Header() {
           <h1>Timbu Cloud Online Shoe Shop</h1>
           <p>Your number one online shoe shop.</p>
         </div>
-        <div className='right-column'>
+        {showCircle &&
+         <div className='right-column'>
           <div className='circle'></div>
         </div>
+        }
       </div>
-      <a>PRODUCT LISTING</a>
+      <a>{bottomTitle}</a>
     </div>
   );
 }

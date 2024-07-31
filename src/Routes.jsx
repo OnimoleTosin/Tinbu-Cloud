@@ -1,9 +1,10 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css'
-import Frontapage from './components/Frontapage';
+import Homepage from '../src/components/Homepage';
 import ShoppingCart from './components/Cart/ShoppingCart';
-import Checkout from './components/Cart/Cheackout';
+import Checkout from './components/Cart/Checkout';
+import CartProvider, { CartContext } from './components/Cart/Cartcontent';
 
 const Routes = () => {
 
@@ -11,7 +12,7 @@ const Routes = () => {
 
         {
             path: '/',
-            element: <Frontapage />,
+            element: <Homepage />,
         },
 
         {
@@ -22,6 +23,11 @@ const Routes = () => {
         {
             path:'/checkout',
             element:<Checkout/>
+        },
+
+        {
+            path:'/cart',
+            element:<CartProvider/>
         }
 
     ])
