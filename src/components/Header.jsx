@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import image1 from '../assets/Images/pngwing.com(1).png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart';
 
-function Header({cartCount, showCircle, bottomTitle}) {
+
+function Header({ cartCount, showCircle, showimage, bottomTitle }) {
   return (
     <div className="header">
 
@@ -10,13 +14,13 @@ function Header({cartCount, showCircle, bottomTitle}) {
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href='/shoppingcart'>Cart</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href='/shoppingcart'>Contact</a></li>
+            <li><a href='/'>Contact</a></li>
           </ul>
         </nav>
         <Link to={'/shoppingcart'}>
-        <button className="logo" >Cart {cartCount}</button>
+          <button className="logo" >Cart {cartCount}</button>
         </Link>
       </header>
 
@@ -26,9 +30,18 @@ function Header({cartCount, showCircle, bottomTitle}) {
           <p>Your number one online shoe shop.</p>
         </div>
         {showCircle &&
-         <div className='right-column'>
-          <div className='circle'></div>
-        </div>
+          <div className='right-column'>
+            <div className='circle'>
+              <FontAwesomeIcon icon={faShoppingCart} className='cart'/>
+            </div>
+          </div>
+        }
+        {showimage &&
+          <div className='right-column'>
+            <div className='pic-Circle'>
+              <img src={image1} alt='name' className="pic-image" />
+            </div>
+          </div>
         }
       </div>
       <a>{bottomTitle}</a>

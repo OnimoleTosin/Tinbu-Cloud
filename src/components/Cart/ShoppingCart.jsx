@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBasketShopping, faCartShopping, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 const ShoppingCart = ({ cartItems }) => {
     return (
         <div className="shopping-cart-page">
-            <Header bottomTitle={'Product Listing'} showCircle={true}/>
+            <Header bottomTitle={<FontAwesomeIcon icon={faBasketShopping}/>} showCircle={true}/>
             <div className="shopping-cart">
                 <h2>Shopping Cart</h2>
                 {cartItems?.length === 0 ? (
