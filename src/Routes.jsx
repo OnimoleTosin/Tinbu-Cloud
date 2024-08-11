@@ -4,7 +4,7 @@ import './App.css'
 import Homepage from '../src/components/Homepage';
 import ShoppingCart from './components/Cart/ShoppingCart';
 import Checkout from './components/Cart/Checkout';
-import CartProvider, { CartContext } from './components/Cart/Cartcontent';
+import  { CartContext } from './components/Cart/Cartcontent';
 
 const Routes = () => {
 
@@ -26,8 +26,8 @@ const Routes = () => {
         },
 
         {
-            path:'/cart',
-            element:<CartProvider/>
+            path:'/cartcontext',
+            element:<CartContext/>
         }
 
     ])

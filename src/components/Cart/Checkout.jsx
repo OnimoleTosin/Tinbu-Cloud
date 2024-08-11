@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 //  import './Checkout.css';
 
 const Checkout = ({ cartItems }) => {
@@ -89,7 +90,9 @@ const Checkout = ({ cartItems }) => {
                     onChange={handlePaymentChange}
                 />
 
-                <button type="submit">Complete Purchase</button>
+                <button type="submit">Complete Purchase
+                    <FontAwesomeIcon icon={faCreditCard}/>
+                </button>
             </form>
         </div>
     );
