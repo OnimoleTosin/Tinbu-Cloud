@@ -15,7 +15,7 @@ function Header({ cartCount, showCircle, showimage, bottomTitle }) {
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href='/shoppingcart'>Cart</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href='/brands'>Products</a></li>
             <li><a href='/'>Contact</a></li>
           </ul>
         </nav>
@@ -27,7 +27,7 @@ function Header({ cartCount, showCircle, showimage, bottomTitle }) {
       <div className='container'>
         <div className='left-column'>
           <h1>Timbu Cloud Online Shoe Shop</h1>
-          <p>Your number one online shoe shop.</p>
+          <p>Your Number 0ne Online Shoe Shop.</p>
         </div>
         {showCircle &&
           <div className='right-column'>

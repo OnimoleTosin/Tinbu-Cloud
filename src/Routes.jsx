@@ -1,40 +1,50 @@
-import React from 'react'
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css'
 import Homepage from '../src/components/Homepage';
 import ShoppingCart from './components/Cart/ShoppingCart';
 import Checkout from './components/Cart/Checkout';
-import  { CartContext } from './components/Cart/Cartcontent';
+import CartProvider from './components/Cart/CartProvider';
+import BrandsPage from './components/Brand/BrandsPage';
+import BrandDetails from './components/Brand/BrandDetails';
+import ErrorBoundary from './components/ErrorBoundary';
+import NotFound from './components/NotFound';
 
 const Routes = () => {
-
     const router = createBrowserRouter([
-
         {
             path: '/',
             element: <Homepage />,
         },
-
         {
             path: '/shoppingcart',
-            element: <ShoppingCart />
+            element: <ShoppingCart />,
         },
-
         {
-            path:'/checkout',
-            element:<Checkout/>
+            path: '/brands',
+            element: <BrandsPage />,
         },
-
         {
-            path:'/cartcontext',
-            element:<CartContext/>
+            path: '/:gender/:brandId',
+            element: <BrandDetails />,
+        },
+        {
+            path: '/checkout',
+            element: <Checkout />,
+        },
+        {
+            path: '*',
+            element: <NotFound />,
         }
-
-    ])
+    ], {
+        // Error boundary configuration
+        errorElement: <ErrorBoundary />,
+    });
 
     return (
-        <RouterProvider router={router} />
-    )
-}
+        <CartProvider>
+            <RouterProvider router={router} />
+        </CartProvider>
+    );
+};
 
-export default Routes
+export default Routes;
