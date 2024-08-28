@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, onAddToCart }) => {
     const [count, setCount] = useState(0);
+
+    const handleAddToCart = () => {
+        if (count > 0) {
+            onAddToCart({ ...product, quantity: count });
+            setCount(0); // Optionally reset count after adding to cart
+        }
+    };
 
     return (
         <div className="product-item">
@@ -16,7 +23,7 @@ const ProductItem = ({ product }) => {
                     <span>{count}</span>
                     <button onClick={() => setCount(count + 1)}>+</button>
                 </div>
-                <button className="add-to-cart">Add to Cart</button>
+                <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
     );

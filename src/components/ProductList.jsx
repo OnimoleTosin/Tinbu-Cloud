@@ -1,5 +1,6 @@
-import React from 'react';
-import ProductCard from '../components/ProductItem';
+import React, { useContext } from 'react';
+import { CartContext } from '../components/Cart/CartContext';
+import ProductItem from '../components/ProductItem';
 import image from '../assets/Images/pngwing.com.png'
 import image1 from '../assets/Images/pngwing.com(1).png'
 import image2 from '../assets/Images/pngwing.com(2).png'
@@ -34,17 +35,18 @@ const products = [
 
 ];
 
-
 function ProductList() {
+  const { onAddToCart } = useContext(CartContext); // Use the context
+
   return (
-    <div className="product-section">
-      <h2 className='title'>Our Products</h2>
-      <div className="product-list">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <div className="product-section">
+          <h2 className='title'>Our Products</h2>
+          <div className="product-list">
+              {products.map((product) => (
+                  <ProductItem key={product.id} product={product} onAddToCart={onAddToCart} />
+              ))}
+          </div>
       </div>
-    </div>
   );
 }
 

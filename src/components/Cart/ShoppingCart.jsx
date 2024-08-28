@@ -1,49 +1,65 @@
-// ShoppingCartPage.js
-import React, { useContext } from 'react';
-import { CartContext } from '../Cart/CartProvider';
-import Header from '../Header';
-import Footer from '../Footer';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartHeader from './CartHeader';
 
-const ShoppingCartPage = () => {
-    const { cartItems, removeFromCart } = useContext(CartContext);
-
-    const totalAmount = cartItems.reduce((sum, product) => sum + product.price, 0);
+function ShoppingCart({ cartItems = [], onRemoveItem, onClearCart }) {
+    const getTotalPrice = () => {
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    };
 
     return (
-        <div className="shopping-cart-page">
-            <Header
-                cartCount={cartItems.length}
-                bottomTitle="Shopping Cart"
-                showCircle={true}
-                showImage={false}
-            />
-            <div className="cart-items">
-                {cartItems.length === 0 ? (
-                    <div className="empty-cart">Your cart is empty</div>
-                ) : (
-                    cartItems.map((item, index) => (
-                        <div key={index} className="cart-item">
-                            <img src={item.image} alt={item.name} className="cart-item-image" />
-                            <div className="cart-item-details">
-                                <div className="cart-item-name">{item.name}</div>
-                                <div className="cart-item-price">${item.price.toFixed(2)}</div>
-                            </div>
-                            <button
-                                className="remove-from-cart"
-                                onClick={() => removeFromCart(index)}
-                            >
-                                Remove
-                            </button>
-                        </div>
-                    ))
-                )}
-            </div>
-            <div className="cart-total">
-                <div>Total Amount: ${totalAmount.toFixed(2)}</div>
-            </div>
-            <Footer />
-        </div>
-    );
-};
+        <>
+            <CartHeader />
+            <div className="shopping-cart-container">
+                <header className="cart-header">
+                    <div className="header-title">
+                        <h1>Shopping Cart</h1>
+                    </div>
+                    <button className="clear-cart" onClick={onClearCart}>Clear Cart</button>
+                </header>
 
-export default ShoppingCartPage;
+                {cartItems.length > 0 ? (
+                    <table className="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cartItems.map((item, index) => (
+                                <tr key={index} className="cart-item-row">
+                                    <td className="cart-item">
+                                        <img src={item.image} alt={item.name} />
+                                        <span>{item.name}</span>
+                                    </td>
+                                    <td>${item.price}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>${(item.price * item.quantity).toFixed(2)}</td>
+                                    <td>
+                                        <button className="remove-item" onClick={() => onRemoveItem(index)}>Remove</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p>Your cart is empty</p>
+                )}
+
+                <div className="cart-footer">
+                    <Link to="/products" className="continue-shopping">Continue Shopping</Link>
+                    <div className="total">
+                        <h2>Total: ${getTotalPrice()}</h2>
+                        <button className="checkout">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default ShoppingCart;

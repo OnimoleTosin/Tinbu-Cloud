@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Homepage from '../src/components/Homepage';
 import ShoppingCart from './components/Cart/ShoppingCart';
 import Checkout from './components/Cart/Checkout';
-import CartProvider from './components/Cart/CartProvider';
+import CartProvider from './components/Cart/CartContext';
 import BrandsPage from './components/Brand/BrandsPage';
 import BrandDetails from './components/Brand/BrandDetails';
 import ErrorBoundary from './components/ErrorBoundary';
