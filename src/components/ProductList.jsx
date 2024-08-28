@@ -34,10 +34,11 @@ const products = [
 
 ];
 
+
 function ProductList() {
   return (
     <div className="product-section">
-      <div className='title'>Our Products</div>
+      <h2 className='title'>Our Products</h2>
       <div className="product-list">
         {products.map(product => (
           <ProductCard key={product.id} product={product} />

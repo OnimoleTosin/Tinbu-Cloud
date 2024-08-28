@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Brand.css'; // Ensure CSS for styling
-import { FaArrowLeft } from 'react-icons/fa'; // FontAwesome icon for arrow
+import './Brand.css';
+import { FaArrowLeft } from 'react-icons/fa';
+import Header from '../Header';
 
 const BrandsPage = () => {
     return (
         <div className="brands-page">
+            {/* <Header
+             bottomTitle="Brands"
+             showCircle={false}
+             showimage={true}
+             /> */}
             <Link to="/" className="back-button">
                         <FaArrowLeft /> 
                     </Link>

@@ -5,7 +5,7 @@
 .tab-nav {
     display: flex;
     align-items: center; /* Ensure items are centered vertically */
-    background-color: #f8f9fa;
+    background-color: #4a39a8;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -76,7 +76,6 @@
 
 .brands-page {
     text-align: center;
-    padding: 20px;
 }
 
 .brand-list {
@@ -105,7 +104,7 @@
 }
 
 .brand-link:hover {
-    background-color: #007bff;
+    background-color: #ee0979;
     color: #fff;
 }
 
