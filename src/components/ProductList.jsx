@@ -12,7 +12,7 @@ import image7 from '../assets/Images/pngwing.com(7).png'
 import image8 from '../assets/Images/pngwing.com(8).png'
 import image9 from '../assets/Images/pngwing.com(9).png'
 import image10 from '../assets/Images/pngwing.com(10).png'
-
+import image11 from '../assets/Images/pngwing.com(11).png'
 
 
 
