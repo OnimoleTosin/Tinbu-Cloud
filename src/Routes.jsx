@@ -19,6 +19,7 @@ const Routes = () => {
             path: '/shoppingcart',
             element: <ShoppingCart />,
         },
+        
         {
             path: '/brands',
             element: <BrandsPage />,
